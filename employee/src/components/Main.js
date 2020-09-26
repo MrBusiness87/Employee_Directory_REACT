@@ -1,10 +1,10 @@
-import React from "react";
+import React, {Component} from "react";
 import Info from "./Table/info";
 
-function Main () {
-    return (
+export default class Main extends Component {
+  render () {
+  return (
         <Info />
     );
   };
-
-export default Main;
+};

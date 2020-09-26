@@ -1,23 +1,23 @@
 import React from "react";
 import Cell from "./cell";
 
-const Table = () => {
-  const context = React.createContext({});
-
+function Table({ headings, users, handleSort }) {
   return (
     <div className="datatable mt-5">
-      <table id="table">
+      <table
+        id="table"
+        className="table table-striped table-hover table-condensed"
+      >
         <thead>
           <tr>
-            {context.developerState.headings.map(({ name }) => {
+            {headings.map(({ name }) => {
               return (
                 <th
                   className="col"
                   key={name}
                   onClick={() => {
-                    context.handleSort(name);
-                  }}
-                >
+                    handleSort(name.toLowerCase());
+                  }}>
                   {name}
                   <span className="pointer"></span>
                 </th>
@@ -25,7 +25,7 @@ const Table = () => {
             })}
           </tr>
         </thead>
-        <Cell />
+        <Cell users={users} />
       </table>
     </div>
   );
