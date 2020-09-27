@@ -1,36 +1,35 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "./table";
 import Navigation from "../Navigation";
 import API from "../../utils/API";
 
-export default class DataArea extends Component {
-  state = {
-    users: [{}],
-    order: "DESCENDING",
-    filteredUsers: [{}]
-  }
-
-  headings = [
-    { name: "IMG"},
-    { name: "NAME"},
-    { name: "PHONE"},
-    { name: "EMAIL"},
-    { name: "BIRTHDAY"}
-  ]
+const Info = () => {
+  const [developerState, setDeveloperState] = useState({
+    users: [],
+    order: "descend",
+    filteredUsers: [],
+    headings: [
+      { name: "IMAGE", order: "descend" },
+      { name: "NAME", order: "descend" },
+      { name: "PHONE", order: "descend" },
+      { name: "EMAIL", order: "descend" },
+      { name: "BIRTHDADY", order: "descend" }
+    ]
+  });
 
   handleSort = heading => {
-    if (this.state.order === "DESCENDING") {
+    if (this.state.order === "descend") {
       this.setState({
-        order: "ASCENDING"
+        order: "ascend"
       })
     } else {
       this.setState({
-        order: "DESCENDING"
+        order: "descend"
       })
     }
 
     const compare = (main, sub) => {
-      if (this.state.order === "ASCENDING") {
+      if (this.state.order === "ascend") {
         if (main[heading] === undefined) {
           return 1;
         } else if (sub[heading] === undefined) {
@@ -71,19 +70,17 @@ export default class DataArea extends Component {
     this.setState({ filteredUsers: filteredList });
   }
 
-  componentDidMount() {
+  componentDidMount() (
     API.allUsers().then(results => {
       this.setState({
         users: results.data.results,
         filteredUsers: results.data.results
       });
-    });
-  }
+    })
+  )
 
-  render() {
-    return (
-      <>
-        <Navigation handleSearchChange={this.handleSearchChange} />
+  render() (
+  <Navigation handleSearchChange={this.handleSearchChange} />
         <div className="data-area">
           <Table
             headings={this.headings}
@@ -91,7 +88,4 @@ export default class DataArea extends Component {
             handleSort={this.handleSort}
           />
         </div>
-      </>
-    );
-  }
-}
+      )

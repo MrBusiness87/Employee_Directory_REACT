@@ -2,6 +2,11 @@ import React from "react";
 import Cell from "./cell";
 
 function Table({ headings, users, handleSort }) {
+  const appstyle = {
+    color: "white",
+    textAlign: "center",
+    fontSize: "24px",
+  }
   return (
     <div className="datatable mt-5">
       <table
@@ -13,7 +18,8 @@ function Table({ headings, users, handleSort }) {
             {headings.map(({ name }) => {
               return (
                 <th
-                  className="col"
+                  style={appstyle}
+                  className="col-2"
                   key={name}
                   onClick={() => {
                     handleSort(name.toLowerCase());

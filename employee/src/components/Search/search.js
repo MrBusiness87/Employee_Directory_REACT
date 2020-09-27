@@ -9,7 +9,7 @@ function Search({ handleSearchChange }) {
           type="search"
           placeholder="SEARCH"
           aria-label="SEARCH"
-          onChange={e => handleSearchChange(e)}
+          onChange={element => handleSearchChange(element)}
         />
       </form>
     </div>
