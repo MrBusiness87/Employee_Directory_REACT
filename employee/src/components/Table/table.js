@@ -22,8 +22,8 @@ function Table({ headings, users, handleSort }) {
                   className="col-2"
                   key={name}
                   onClick={() => {
-                    handleSort(name.toLowerCase());
-                  }}>
+                    handleSort(name());
+                  } }>
                   {name}
                   <span className="pointer"></span>
                 </th>
