@@ -70,14 +70,14 @@ const Info = () => {
       headings: updatedHeadings
     });
   };
-
-  const Searching = event => {
-    const filter = event.target.value;
+  const handleSearchChange = event => {
+    const filter = event.target;
     const filterList = devState.users.filter(item => {
-      let values = item.name.last() + ", " + item.name.first();
-      if (values.indexOf(filter()) !== -1) {
-        return item;
+      let value = item.name.last + ", " + item.name.first;
+      if (value.indexOf(filter) !== -1) {
+        return this.item;
       };
+      console.log(item)
     });
 
     setState({ ...devState, filtered: filterList });
@@ -85,7 +85,6 @@ const Info = () => {
 
   useEffect(() => {
     API.allUsers().then(results => {
-      console.log(results.data.results);
       setState({
         ...devState,
         users: results.data.results,
@@ -96,11 +95,11 @@ const Info = () => {
 
   return (
     <div
-      value={{ devState, Searching, sorting }}
+      value={{ devState, handleSearchChange, sorting }}
     >
-      <Navigation />
+      <Navigation handleSearchChange={handleSearchChange} />
       <div className="area">
-        {devState.filtered.length > 0 ? <Table /> : <div></div>}
+        {devState.filtered.length > 0 ? <Table headings={devState.headings} users={devState.users} /> : <div></div>}
       </div>
     </div>
   );

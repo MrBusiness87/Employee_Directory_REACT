@@ -3,7 +3,6 @@ import React from "react";
 function Cell ({ users }) {
   function formatDate(date) {
     const dateArray = date.split("-");
-    console.log (dateArray);
     const dayArray = dateArray[2].split("T");
     const month = dateArray[1];
     const day = dayArray[0];
