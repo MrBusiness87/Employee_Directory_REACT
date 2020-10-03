@@ -3,7 +3,6 @@ import React from "react";
 function Search({ handleSearchChange }) {
   return (
     <div className="SEARCH">
-      <form className="form-inline">
         <input
           className="form-control"
           type="search"
@@ -11,7 +10,6 @@ function Search({ handleSearchChange }) {
           aria-label="SEARCH"
           onChange={element => handleSearchChange(element)}
         />
-      </form>
     </div>
   );
 }

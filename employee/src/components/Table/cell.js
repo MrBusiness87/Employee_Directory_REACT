@@ -15,33 +15,33 @@ function Cell ({ users }) {
     <tbody>
       {users[0] !== undefined && users[0].name !== undefined ? (
         users.map(({ login, name, picture, phone, email, dob }) => {
-          const appstyle = {
+          const appStyle = {
             textAlign: "center",
             color: "white",
             fontWeight: "bold",
-            fontSize: "12px",
+            fontSize: "20px",
           }
           return (
             <tr key={login.uuid}>
-              <td data-th="IMG" className="align-middle" style={appstyle}>
+              <td data-th="IMG" style={appStyle}>
                 <img
                   src={picture.medium}
                   alt={"IMAGE FOR: " + name.last + ", " + name.first}
                   className="img-responsive"
                 />
               </td>
-              <td data-th="NAME" className="name-cell align-middle" style={appstyle}>
+              <td data-th="NAME" className="name-cell align-middle" style={appStyle}>
                 {name.last + ", " + name.first}
               </td>
-              <td data-th="PHONE" className="align-middle" style={appstyle}>
+              <td data-th="PHONE" style={appStyle}>
                 {phone}
               </td>
-              <td data-th="EMAIL" className="align-middle" style={appstyle}>
+              <td data-th="EMAIL" style={appStyle}>
                 <a href={"EMAIL:" + email} target="__blank">
                   {email}
                 </a>
               </td>
-              <td data-th="BIRTHDAY" className="align-middle" style={appstyle}>
+              <td data-th="BIRTHDAY" style={appStyle}>
                 {formatDate(dob.date)}
               </td>
             </tr>

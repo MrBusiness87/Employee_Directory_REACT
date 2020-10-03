@@ -5,7 +5,8 @@ function Table({ headings, users, handleSort }) {
   const appstyle = {
     color: "white",
     textAlign: "center",
-    fontSize: "24px",
+    fontSize: "30px",
+    width: "20%",
   }
   return (
     <div className="datatable mt-5">
