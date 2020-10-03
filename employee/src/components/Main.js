@@ -6,9 +6,11 @@ export default class Main extends Component {
     const appstyle = {
       textAlign: "center",
       fontSize: "36px",
+      fontWeight: "bold",
     }
     return (
       <div>
+        <br />
         <h1 style={appstyle}>EMPLOYEE DIRECTORY</h1>
         <Info />
       </div>

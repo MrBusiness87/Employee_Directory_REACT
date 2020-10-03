@@ -19,8 +19,10 @@ function Cell ({ users }) {
             textAlign: "center",
             color: "white",
             fontWeight: "bold",
-            fontSize: "20px",
+            fontSize: "28px",
+            textDecoration: "none",
           }
+
           return (
             <tr key={login.uuid}>
               <td data-th="IMG" style={appStyle}>
