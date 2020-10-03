@@ -27,15 +27,14 @@ const Info = () => {
     });
   }, []);
   
-  const canDrink = () => {
-    let filterArray = [...devState.users].filter(user => user.dob.age > 21)
+  const seniors = () => {
+    let filterArray = [...devState.users].filter(user => user.dob.age > 65)
     setState({ ...devState, filtered: filterArray
     });
   };
 
   const reset = () => {
-    setState({ filtered: devState.users });
-    console.log ("devState.users",devState.users)
+    setState({ ...devState, filtered: devState.users });
   };
 
   const handleSearchChange = event => {
@@ -61,7 +60,7 @@ const Info = () => {
   return (
     <div style={searchArea}>
       <Navigation handleSearchChange={handleSearchChange} />
-      <button onClick={canDrink} className="btn btn-success" style={buttonStyle}>OVER 21</button>&emsp;
+      <button onClick={seniors} className="btn btn-success" style={buttonStyle}>SENIORS (65+)</button>&emsp;
       <button onClick={reset} className="btn btn-danger" style={buttonStyle}>RESET</button>
       <div className="area">
         {devState.filtered.length === devState.users.length ? <Table headings={devState.headings} users={devState.users} /> : <Table headings={devState.headings} users={devState.filtered} />}
