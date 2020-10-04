@@ -1,7 +1,8 @@
 # Employee Directory REACT
   ## README created by: MrBusiness87
   ---
-  <img src="./assets/main.png" style="height:300px; width: 600px">
+  <img src="./assets/main.png" style="width: 50%; float: left">
+  <img src="./gif.gif" style="width: 49.5%">
 
   ---
   ## Table of Contents:
