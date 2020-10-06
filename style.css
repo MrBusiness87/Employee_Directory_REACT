@@ -1,0 +1,10 @@
+/* unvisited link */
+a:link {
+  color: white;
+}
+
+/* mouse over link */
+a:link:hover {
+  color: yellow;
+  font-size: "36px";
+}
